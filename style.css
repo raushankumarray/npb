@@ -1,13 +1,13 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4; /* Light background color */
+    margin: auto;
+    padding: auto;
+    background-color: #ff2e2e; /* Light background color */
 }
 
 header {
     position: fixed; /* Fix the header at the top */
-    width: 100%; /* Full width */
+    width: auto; /* Full width */
     background-color: rgba(255, 255, 255, 0.8); /* Transparent background */
     backdrop-filter: blur(10px); /* Optional: blur effect for transparency */
     z-index: 1000; /* Ensure the header is above other content */
@@ -106,8 +106,9 @@ section::before {
     }
 }
 
+
 h2 {
-    color: #ffffff; /* White color for section headings */
+    color: hsla(230, 97%, 35%, 0.911); /* White color for section headings */
 }
 
 /* Card grid layout */
@@ -135,9 +136,10 @@ h2 {
     transition: transform 0.3s, background-color 0.3s; /* Smooth transition for transform and background color */
 }
 
+
 /* Unique background colors for each card */
 .card:nth-child(1) {
-    background-color: #ffcccc; /* Light red */
+    background-color: #b3b6e1; /* Light red */
 }
 
 .card:nth-child(2) {
@@ -249,17 +251,3 @@ footer {
 .section-link:hover {
     background-color: rgba(255, 255, 255, 0.1); /* Lighten background on hover */
 }
-
-.slider {
-    position: relative;
-    width: 100%; /* Full width for the slider */
-    max-width: 600px; /* Maximum width for the slider */
-    margin: 0 auto; /* Center the slider */
-    overflow: hidden; /* Hide overflow */
-}
-
-.slider-image {
-    width: 100%; /* Full width for images */
-    height: auto; /* Maintain aspect ratio */
-    display: none; /* Hide images by default */
-} 
