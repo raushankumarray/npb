@@ -1,0 +1,265 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Light background color */
+}
+
+header {
+    position: fixed; /* Fix the header at the top */
+    width: 100%; /* Full width */
+    background-color: rgba(255, 255, 255, 0.8); /* Transparent background */
+    backdrop-filter: blur(10px); /* Optional: blur effect for transparency */
+    z-index: 1000; /* Ensure the header is above other content */
+    padding: 10px 20px; /* Padding for the header */
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space between logo and nav */
+    align-items: center; /* Center items vertically */
+}
+
+.logo {
+    display: flex; /* Flexbox for logo */
+    align-items: center; /* Center logo vertically */
+}
+
+.logo-image {
+    height: 50px; /* Set logo height */
+    width: auto; /* Maintain aspect ratio */
+    border-radius: 50%; /* Make logo circular */
+}
+
+nav {
+    display: flex; /* Use flexbox for navigation */
+}
+
+.nav-links {
+    list-style: none; /* Remove bullet points */
+    display: flex; /* Use flexbox for horizontal layout */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+
+.nav-links li {
+    margin-left: 20px; /* Space between navigation items */
+}
+
+.nav-links a {
+    text-decoration: none; /* Remove underline from links */
+    color: #007bff; /* Link color */
+    transition: color 0.3s; /* Smooth transition for color */
+}
+
+.nav-links a:hover {
+    color: #0056b3; /* Darker blue on hover */
+}
+
+main {
+    padding: 80px 20px 20px; /* Add top padding to avoid overlap with fixed header */
+}
+
+/* Section styles */
+section {
+    color: white; /* White text color for better contrast */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+    margin-bottom: 20px; /* Space between sections */
+    padding: 20px; /* Padding inside sections */
+    position: relative; /* Position for line animation */
+}
+
+/* Different background colors for each section */
+section:nth-child(1) {
+    background-color: #343a40; /* Dark gray */
+}
+
+section:nth-child(2) {
+    background-color: #007bff; /* Blue */
+}
+
+section:nth-child(3) {
+    background-color: #28a745; /* Green */
+}
+
+section:nth-child(4) {
+    background-color: #ffc107; /* Yellow */
+}
+
+/* Line animation effect */
+section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 100%;
+    height: 5px; /* Line height */
+    background: linear-gradient(90deg, #ff0000, #00ff00, #0000ff); /* Color gradient */
+    animation: lineAnimation 2s linear infinite; /* Animation for line */
+    transform: translateX(-50%); /* Center the line */
+}
+
+@keyframes lineAnimation {
+    0% {
+        background-position: 0%;
+    }
+    100% {
+        background-position: 100%;
+    }
+}
+
+h2 {
+    color: #ffffff; /* White color for section headings */
+}
+
+/* Card grid layout */
+.card-container {
+    display: grid; /* Use grid layout */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Responsive columns */
+    gap: 37.8px; /* Space between cards (1 cm) */
+    justify-items: center; /* Center cards in the grid */
+}
+
+/* Card styles */
+.card {
+    background-color: #ffffff; /* Light background for cards */
+    color: #343a40; /* Dark text color for better contrast */
+    border: 1px solid #ced4da; /* Light border for cards */
+    border-radius: 15px; /* Rounded corners for cards */
+    padding: 15px; /* Padding inside cards */
+    display: flex; /* Flexbox for alignment */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    flex-direction: column; /* Stack items vertically */
+    height: auto; /* Allow height to adjust based on content */
+    width: 100%; /* Full width to fit the container */
+    max-width: 200px; /* Maximum width for uniformity */
+    transition: transform 0.3s, background-color 0.3s; /* Smooth transition for transform and background color */
+}
+
+/* Unique background colors for each card */
+.card:nth-child(1) {
+    background-color: #ffcccc; /* Light red */
+}
+
+.card:nth-child(2) {
+    background-color: #ccffcc; /* Light green */
+}
+
+.card:nth-child(3) {
+    background-color: #ffffcc; /* Light yellow */
+}
+
+.card:nth-child(4) {
+    background-color: #ccffff; /* Light cyan */
+}
+
+.card:nth-child(5) {
+    background-color: #ffccff; /* Light magenta */
+}
+
+.card:nth-child(6) {
+    background-color: #ffe6cc; /* Light orange */
+}
+
+.card:nth-child(7) {
+    background-color: #d1c4e9; /* Light purple */
+}
+
+.card:nth-child(8) {
+    background-color: #c8e6c9; /* Light green */
+}
+
+.card:nth-child(9) {
+    background-color: #f0f4c3; /* Light lime */
+}
+
+.card:nth-child(10) {
+    background-color: #f8bbd0; /* Light pink */
+}
+
+.card:nth-child(11) {
+    background-color: #d7ccc8; /* Light brown */
+}
+
+.card:nth-child(12) {
+    background-color: #e1bee7; /* Light lavender */
+}
+
+/* Hover effect for cards */
+.card:hover {
+    transform: scale(1.05); /* Scale up on hover */
+}
+
+/* Logo styles */
+.card-logo {
+    width: 50px; /* Set logo width */
+    height: 50px; /* Set logo height */
+    margin-bottom: 10px; /* Space between logo and text */
+    font-size: 24px; /* Font size for logo text */
+    font-weight: bold; /* Bold text */
+    color: #007bff; /* Logo text color */
+    background-color: #e9ecef; /* Background for logo text */
+    border-radius: 50%; /* Circular background */
+    display: flex; /* Flexbox for centering */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+}
+
+/* Footer styles */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #343a40; /* Dark footer */
+    color: white;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    header, footer {
+        padding: 15px; /* Adjust padding for smaller screens */
+    }
+
+    button {
+        width: 100%; /* Full-width button on small screens */
+    }
+
+    section {
+        margin: 10px; /* Reduce margin for smaller screens */
+    }
+
+    .card {
+        height: auto; /* Allow card height to adjust based on content */
+        width: 100%; /* Full width for smaller screens */
+    }
+
+    .card-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on smaller screens */
+    }
+}
+
+.section-link {
+    text-decoration: none; /* Remove underline from links */
+    color: inherit; /* Inherit color from parent (section) */
+    display: block; /* Make the link a block element */
+    transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+.section-link:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Lighten background on hover */
+}
+
+.slider {
+    position: relative;
+    width: 100%; /* Full width for the slider */
+    max-width: 600px; /* Maximum width for the slider */
+    margin: 0 auto; /* Center the slider */
+    overflow: hidden; /* Hide overflow */
+}
+
+.slider-image {
+    width: 100%; /* Full width for images */
+    height: auto; /* Maintain aspect ratio */
+    display: none; /* Hide images by default */
+} 
