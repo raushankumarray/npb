@@ -1,0 +1,131 @@
+/* Basic Reset & Body Styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 20px;
+}
+
+/* Container Styling */
+.contact-container {
+    max-width: 600px;
+    margin: 40px auto; /* Center the container */
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-container h1 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.contact-container p {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #555;
+}
+
+/* Form Group Styling */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Label Styling */
+.form-group label {
+    display: block; /* Ensure label is on its own line */
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #444;
+}
+
+/* Input and Textarea Styling */
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+    border-color: #007bff; /* Highlight focus */
+    outline: none; /* Remove default outline */
+}
+
+.form-group textarea {
+    resize: vertical; /* Allow vertical resizing, disable horizontal */
+    min-height: 100px;
+}
+
+/* Button Styling */
+button[type="submit"] {
+    display: block; /* Make button block level */
+    width: 100%;
+    padding: 12px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px; /* Add some space above the button */
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Error Message Styling */
+.error-message {
+    color: #dc3545; /* Red color for errors */
+    font-size: 0.9em;
+    margin-top: 5px;
+    min-height: 1em; /* Reserve space even when empty */
+}
+
+/* Status Message Styling */
+#form-status {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: bold;
+    display: none; /* Hidden by default */
+}
+
+#form-status.success {
+    background-color: #d4edda; /* Light green */
+    color: #155724; /* Dark green */
+    border: 1px solid #c3e6cb;
+    display: block; /* Show when class is added */
+}
+
+#form-status.error {
+    background-color: #f8d7da; /* Light red */
+    color: #721c24; /* Dark red */
+    border: 1px solid #f5c6cb;
+    display: block; /* Show when class is added */
+}
+
+/* Style for input fields with errors */
+.form-group input.error-border,
+.form-group textarea.error-border {
+    border-color: #dc3545; /* Red border */
+}
