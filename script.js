@@ -1,93 +1,50 @@
-// Wait for the HTML document to be fully loaded and parsed
+// script.js
 document.addEventListener('DOMContentLoaded', function() {
-    console.log("DOM fully loaded and parsed"); // DEBUG: Check if script starts
 
-    // Get references to the button and the menu
+    // Header Menu Toggle Logic
     const menuToggleButton = document.getElementById('menu-toggle');
     const navMenu = document.getElementById('nav-menu');
 
-    // DEBUG: Check if elements were found
-    if (!menuToggleButton) {
-        console.error("Error: Menu toggle button with id 'menu-toggle' not found!");
-    } else {
-        console.log("Menu toggle button found:", menuToggleButton);
-    }
-
-    if (!navMenu) {
-        console.error("Error: Navigation menu with id 'nav-menu' not found!");
-    } else {
-        console.log("Navigation menu found:", navMenu);
-    }
-
-    // Proceed only if both elements exist
     if (menuToggleButton && navMenu) {
-        // Add a click event listener to the button
         menuToggleButton.addEventListener('click', function() {
-            console.log("Menu toggle button clicked!"); // DEBUG: Check if click event fires
-
-            // Toggle the 'active' class on the navigation menu
             navMenu.classList.toggle('active');
-            console.log("Toggled 'active' class on nav menu. Current classes:", navMenu.className); // DEBUG: See classes change
-
-            // Toggle the aria-expanded attribute for accessibility
-            // Use getAttribute to check current state reliably before setting
             const isExpanded = menuToggleButton.getAttribute('aria-expanded') === 'true';
-            menuToggleButton.setAttribute('aria-expanded', !isExpanded); // Set to the opposite state
-            console.log("Toggled aria-expanded to:", !isExpanded); // DEBUG: Check ARIA state change
-
+            menuToggleButton.setAttribute('aria-expanded', !isExpanded);
         });
-
-        console.log("Click event listener added to menu toggle button."); // DEBUG: Confirm listener setup
-    } else {
-        console.error("Could not add event listener because one or both elements were not found.");
     }
 
-});
-
-// Wait for the DOM to be ready
-document.addEventListener('DOMContentLoaded', function() {
-
-    // --- Header Menu Toggle Logic (Keep the existing code from previous response) ---
-    const menuToggleButton = document.getElementById('menu-toggle');
-    const navMenu = document.getElementById('nav-menu');
-    // ... (rest of the header toggle code) ...
-
-
-    // --- Image Slider Logic ---
+    // Image Slider Logic
     const sliderWrapper = document.querySelector('.slider-wrapper');
     const slides = document.querySelectorAll('.slide');
     const prevBtn = document.querySelector('.prev-btn');
     const nextBtn = document.querySelector('.next-btn');
     const dotsContainer = document.querySelector('.slider-dots');
-    const sliderContainer = document.querySelector('.slider-container'); // Get container for hover effect
+    const sliderContainer = document.querySelector('.slider-container');
 
     if (sliderWrapper && slides.length > 0 && prevBtn && nextBtn && dotsContainer && sliderContainer) {
         let currentIndex = 0;
         const slideCount = slides.length;
-        let slideWidth = slides[0].clientWidth; // Get initial width
-        let intervalId = null; // For auto-sliding interval
-        const autoSlideInterval = 4000; // Time in ms (e.g., 4 seconds)
+        let slideWidth = slides[0].clientWidth;
+        let intervalId = null;
+        const autoSlideInterval = 4000;
 
-        // --- Create Dots ---
         function createDots() {
-            dotsContainer.innerHTML = ''; // Clear existing dots if any
+            dotsContainer.innerHTML = '';
             for (let i = 0; i < slideCount; i++) {
                 const dot = document.createElement('span');
                 dot.classList.add('dot');
-                dot.dataset.index = i; // Store index in data attribute
+                dot.dataset.index = i;
                 dotsContainer.appendChild(dot);
             }
-            // Add click listener to dots container (event delegation)
-             dotsContainer.addEventListener('click', (e) => {
+            dotsContainer.addEventListener('click', (e) => {
                 if (e.target.classList.contains('dot')) {
                     const index = parseInt(e.target.dataset.index);
-                     goToSlide(index);
-                     resetAutoSlide(); // Reset timer when dot is clicked
+                    goToSlide(index);
+                    resetAutoSlide();
                 }
-             });
+            });
         }
 
-        // --- Update Dots ---
         function updateDots() {
             const dots = dotsContainer.querySelectorAll('.dot');
             dots.forEach((dot, index) => {
@@ -95,9 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
 
-        // --- Go To Slide ---
         function goToSlide(index) {
-            // Handle index wrapping
             if (index < 0) {
                 currentIndex = slideCount - 1;
             } else if (index >= slideCount) {
@@ -105,14 +60,11 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 currentIndex = index;
             }
-
-            // Calculate the translation
             const offset = -currentIndex * slideWidth;
             sliderWrapper.style.transform = `translateX(${offset}px)`;
             updateDots();
         }
 
-        // --- Show Next/Prev ---
         function showNextSlide() {
             goToSlide(currentIndex + 1);
         }
@@ -121,103 +73,67 @@ document.addEventListener('DOMContentLoaded', function() {
             goToSlide(currentIndex - 1);
         }
 
-        // --- Auto Sliding ---
         function startAutoSlide() {
-            if (intervalId) clearInterval(intervalId); // Clear existing interval if any
+            if (intervalId) clearInterval(intervalId);
             intervalId = setInterval(showNextSlide, autoSlideInterval);
-            console.log("Autoslide started, Interval ID:", intervalId);
         }
 
         function stopAutoSlide() {
             clearInterval(intervalId);
-            intervalId = null; // Clear the stored ID
-             console.log("Autoslide stopped");
+            intervalId = null;
         }
 
-         function resetAutoSlide() {
-             stopAutoSlide();
-             startAutoSlide();
-         }
+        function resetAutoSlide() {
+            stopAutoSlide();
+            startAutoSlide();
+        }
 
-        // --- Handle Window Resize ---
         function handleResize() {
-            // Recalculate slide width based on container
             slideWidth = sliderContainer.clientWidth;
-            // Update transform immediately without transition for resize
             const offset = -currentIndex * slideWidth;
-            sliderWrapper.style.transition = 'none'; // Disable transition during resize adjustment
+            sliderWrapper.style.transition = 'none';
             sliderWrapper.style.transform = `translateX(${offset}px)`;
-            // Force reflow/repaint might be needed in some browsers
-             void sliderWrapper.offsetWidth; // Read offsetWidth to trigger reflow
-            // Re-enable transition
+            void sliderWrapper.offsetWidth;
             sliderWrapper.style.transition = 'transform 0.6s ease-in-out';
-            console.log("Resized, new slideWidth:", slideWidth);
         }
 
-        // --- Initialize Slider ---
         function initSlider() {
-            console.log("Initializing slider...");
-            slideWidth = sliderContainer.clientWidth; // Initial width calculation
+            slideWidth = sliderContainer.clientWidth;
             createDots();
-            goToSlide(0); // Start at the first slide
-            startAutoSlide(); // Start automatic sliding
-
-            // Add event listeners
+            goToSlide(0);
+            startAutoSlide();
             nextBtn.addEventListener('click', () => {
                 showNextSlide();
-                resetAutoSlide(); // Reset timer on manual navigation
+                resetAutoSlide();
             });
             prevBtn.addEventListener('click', () => {
                 showPrevSlide();
-                resetAutoSlide(); // Reset timer on manual navigation
+                resetAutoSlide();
             });
-
-             // Pause on hover
-             sliderContainer.addEventListener('mouseenter', stopAutoSlide);
-             sliderContainer.addEventListener('mouseleave', startAutoSlide);
-
-             // Recalculate width on resize
-             window.addEventListener('resize', handleResize);
-
-            console.log("Slider Initialized. Slide count:", slideCount);
+            sliderContainer.addEventListener('mouseenter', stopAutoSlide);
+            sliderContainer.addEventListener('mouseleave', startAutoSlide);
+            window.addEventListener('resize', handleResize);
         }
 
-        // Start the slider initialization
         initSlider();
 
     } else {
         console.warn("Slider elements not found. Could not initialize image slider.");
-        // Log which elements might be missing
-        if (!sliderWrapper) console.warn("- Slider wrapper (.slider-wrapper) not found.");
-        if (!slides.length > 0) console.warn("- No slides (.slide) found.");
-        if (!prevBtn) console.warn("- Previous button (.prev-btn) not found.");
-        if (!nextBtn) console.warn("- Next button (.next-btn) not found.");
-        if (!dotsContainer) console.warn("- Dots container (.slider-dots) not found.");
-        if (!sliderContainer) console.warn("- Slider container (.slider-container) not found.");
     }
 
-}); // End DOMContentLoaded listener
+    // Services Section Intersection Observer
+    const serviceItems = document.querySelectorAll('.service-item');
 
-
-// Services Sectiom
-const serviceItems = document.querySelectorAll('.service-item');
-
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('show');
-        } else {
-            //entry.target.classList.remove('show'); //Optional: remove show when out of view.
-        }
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+            }
+        });
     });
+
+    serviceItems.forEach(item => {
+        observer.observe(item);
+    });
+
 });
-
-serviceItems.forEach(item => {
-    observer.observe(item);
-});
-
-
-
-
-
-
