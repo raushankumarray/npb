@@ -1,3 +1,4 @@
+/* style.css */
 /* Basic Reset & Body Font */
 * {
     margin: 0;
@@ -6,79 +7,82 @@
 }
 
 body {
-    font-family: 'Poppins', Arial, Helvetica, sans-serif; /* Example using Google Fonts */
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
     line-height: 1.6;
 }
 
 /* Header Styling */
-
-
-.header-container {
-    max-width: 1200px; /* Max width for content */
-    margin: 0 auto; /* Center the container */
-    padding: 0 20px; /* Padding on the sides */
-    display: flex;
-    justify-content: space-between; /* Pushes logo area and nav apart */
-    align-items: center; /* Vertically aligns items */
-    flex-wrap: wrap; /* Allows items to wrap on very small screens if needed */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: #f8f9fa;
+    padding: 10px 0;
+    border-bottom: 1px solid #e0e0e0;
+    width: 100%;
 }
 
-/* Left Side: Logo & Titles */
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
 .logo-area {
     display: flex;
     align-items: center;
-    gap: 15px; /* Space between logo and text */
+    gap: 15px;
 }
 
 #logo {
-    height: 50px; /* Adjust logo height as needed */
-    width: auto; /* Maintain aspect ratio */
-    display: block; /* Removes extra space below image */
+    height: 50px;
+    width: auto;
+    display: block;
 }
 
 .title-area {
-    line-height: 1.2; /* Tighter line height for title block */
+    line-height: 1.2;
 }
 
 .site-name {
-    font-size: 1.5em; /* Adjust size as needed */
-    font-weight: 00;
-    /* --- Colorful Text --- */
-    color: #0c30b4; /* Example Color 1: Blue */
+    font-size: 1.5em;
+    font-weight: 600;
+    color: #0c30b4;
 }
 
 .site-subtitle {
     font-size: 0.9em;
     font-weight: 400;
-    /* --- Colorful Text --- */
-    color: #de7b03; /* Example Color 2: Green */
+    color: #de7b03;
 }
 
-/* Right Side: Navigation */
 .main-nav {
     display: flex;
     align-items: center;
 }
 
 .menu-toggle {
-    display: none; /* Hidden on desktop */
+    display: none;
     background: none;
     border: none;
-    font-size: 2em; /* Size of hamburger icon */
+    font-size: 2em;
     color: #ef700f;
     cursor: pointer;
 }
 
 .nav-menu {
     list-style: none;
-    display: flex; /* Horizontal layout on desktop */
-    gap: 20px; /* Space between menu items */
+    display: flex;
+    gap: 20px;
 }
 
 .nav-menu li a {
     text-decoration: none;
-    /* --- Colorful Text --- */
-    color: #dc3545; /* Example Color 3: Red */
+    color: #dc3545;
     font-weight: 600;
     padding: 5px 10px;
     transition: color 0.9s ease, background-color 0.3s ease;
@@ -87,105 +91,26 @@ body {
 
 .nav-menu li a:hover,
 .nav-menu li a:focus {
-    color: #fff; /* White text on hover */
-    background-color: #0056b3; /* Blue background on hover */
+    color: #fff;
+    background-color: #0056b3;
 }
 
-/* --- Responsive Styles --- */
+/* Responsive Styles */
 @media (max-width: 768px) {
-    .header-container {
-        /* Keep space-between, alignment remains center */
-    }
-
     .menu-toggle {
-        display: block; /* Show hamburger button on mobile */
-    }
-
-    .nav-menu {
-        display: none; /* Hide menu by default on mobile */
-        position: absolute;
-        top: 100%; /* Position below the header */
-        right: 0;
-        background-color: #e9ecef; /* Slightly different background for dropdown */
-        width: 100%; /* Full width */
-        flex-direction: column; /* Stack items vertically */
-        align-items: center; /* Center text */
-        padding: 15px 0;
-        border-top: 1px solid #ddd;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        gap: 0; /* Reset gap for vertical layout */
-        opacity: 0; /* Start hidden for transition */
-        transform: translateY(-10px); /* Start slightly above for transition */
-        transition: opacity 0.3s ease, transform 0.3s ease;
-    }
-
-    .nav-menu.active {
-        display: flex; /* Show the menu when active */
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    .nav-menu li {
-        width: 100%;
-        text-align: left;
-        padding-right: 30px;
-        padding-left: 30px;
-    }
-
-    .nav-menu li a {
-        display: block; /* Make links full width */
-        padding: 12px 20px; /* Adjust padding for vertical menu */
-        border-bottom: 1px solid #ddd; /* Separator lines */
-        width: 100%;
-        border-radius: 0; /* Remove border-radius for full width links */
-    }
-    .nav-menu li:last-child a {
-        border-bottom: none; /* Remove border from last item */
-    }
-
-     .nav-menu li a:hover,
-     .nav-menu li a:focus {
-        background-color: #e07d13; /* Keep hover consistent */
-        color: #0721cc;
-     }
-
-     /* Adjust title size slightly for smaller screens if needed */
-     .site-name {
-         font-size: 1.3em;
-     }
-     .site-subtitle {
-         font-size: 0.8em;
-     }
-     #logo {
-         height: 40px; /* Slightly smaller logo */
-     }
-}
-
-
-
-/* --- Previous CSS rules from the last response remain the same --- */
-/* Add these rules or modify existing ones within the mobile media query */
-
-/* --- Responsive Styles --- */
-@media (max-width: 768px) {
-    /* ... (keep all previous mobile styles for .header-container, etc.) ... */
-
-    .menu-toggle {
-        display: block; /* Show hamburger button */
-        /* --- Add/Ensure these styles --- */
-        position: relative; /* Needed for z-index to work reliably */
-        z-index: 1100;     /* Ensure button is clickable, above other elements */
-        cursor: pointer;   /* Explicitly set cursor */
+        display: block;
+        position: relative;
+        z-index: 1100;
+        cursor: pointer;
         background: none;
         border: none;
         font-size: 2em;
         color: #333;
-        padding: 5px; /* Add some padding for easier tapping */
+        padding: 5px;
     }
 
     .nav-menu {
-        /* ... (keep all previous mobile styles for .nav-menu) ... */
-        display: none; /* Explicitly ensure it's hidden initially */
+        display: none;
         position: absolute;
         top: 100%;
         right: 0;
@@ -199,77 +124,86 @@ body {
         gap: 0;
         opacity: 0;
         transform: translateY(-10px);
-        transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease; /* Added visibility transition */
-        visibility: hidden; /* Use visibility for transition */
-        z-index: 1050; /* Ensure menu is above content but below button if needed */
+        transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+        visibility: hidden;
+        z-index: 1050;
     }
 
     .nav-menu.active {
-        display: flex; /* Use flex to show */
+        display: flex;
         opacity: 1;
         transform: translateY(0);
-        visibility: visible; /* Make visible */
+        visibility: visible;
+    }
+    .nav-menu li {
+        width: 100%;
+        text-align: left;
+        padding-right: 30px;
+        padding-left: 30px;
     }
 
-    /* ... (keep all previous mobile styles for li, a, etc.) ... */
+    .nav-menu li a {
+        display: block;
+        padding: 12px 20px;
+        border-bottom: 1px solid #ddd;
+        width: 100%;
+        border-radius: 0;
+    }
+    .nav-menu li:last-child a {
+        border-bottom: none;
+    }
+
+    .nav-menu li a:hover,
+    .nav-menu li a:focus {
+        background-color: #e07d13;
+        color: #0721cc;
+    }
+    .site-name {
+        font-size: 1.3em;
+    }
+    .site-subtitle {
+        font-size: 0.8em;
+    }
+    #logo {
+        height: 40px;
+    }
 }
 
-/* --- Ensure other base styles and desktop styles are still present --- */
-
-/* Example: Make sure the header itself has a z-index */
-.site-header {
-    /* ... other styles ... */
-    position: sticky;
-    top: 0;
-    z-index: 1000; /* Base z-index */
-    background-color: #f8f9fa;
-    padding: 10px 0;
-    border-bottom: 1px solid #e0e0e0;
-    width: 100%;
-}
-
-
-/* image slide section */
+/* Image Slider */
 .slider-container {
-    width: 100%;            
-    position: relative;    
-    overflow: hidden;    
-    background-color: #eee; 
-     aspect-ratio: 16 / 7; 
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    background-color: #eee;
+    aspect-ratio: 16 / 7;
 }
 
 .slider-wrapper {
-    display: flex;         
-    height: 100%;          
+    display: flex;
+    height: 100%;
     transition: transform 0.6s ease-in-out;
 }
 
 .slide {
-    min-width: 100%;        /* Each slide takes full container width */
-    height: 100%;           /* Each slide takes full container height */
-    flex-shrink: 0;         /* Prevents slides from shrinking */
-    position: relative;     /* For potential caption overlay later */
+    min-width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    position: relative;
 }
 
 .slide img {
-    display: block;         /* Removes extra space below image */
-    width: 100%;            /* Image tries to fill slide width */
-    height: 100%;           /* Image tries to fill slide height */
-
-    /* --- Key property for fitting ANY size image --- */
+    display: block;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    /* 'cover': Fills the space, maintains aspect ratio, crops if needed (usually best for sliders) */
-    /* 'contain': Fits the whole image, maintains aspect ratio, may leave empty space (letterboxing) */
-    /* 'fill': Stretches/squishes image to fill space, ignores aspect ratio (usually bad) */
 }
 
-/* --- Navigation Buttons --- */
 .slider-btn {
     position: absolute;
-    top: 50%;               /* Center vertically */
+    top: 50%;
     transform: translateY(-50%);
-    z-index: 10;            /* Ensure buttons are above slides */
-    background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent background */
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.4);
     color: white;
     border: none;
     padding: 10px 15px;
@@ -292,33 +226,31 @@ body {
     right: 15px;
 }
 
-/* --- Navigation Dots --- */
 .slider-dots {
     position: absolute;
-    bottom: 15px;           /* Position at the bottom */
-    left: 50%;              /* Center horizontally */
+    bottom: 15px;
+    left: 50%;
     transform: translateX(-50%);
-    z-index: 10;            /* Ensure dots are above slides */
+    z-index: 10;
     display: flex;
-    gap: 8px;               /* Space between dots */
+    gap: 8px;
 }
 
 .dot {
     width: 12px;
     height: 12px;
-    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white */
-    border-radius: 50%;     /* Make them circular */
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
     cursor: pointer;
     border: 1px solid rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s ease;
 }
 
 .dot.active {
-    background-color: rgba(255, 255, 255, 0.9); /* Brighter white for active dot */
+    background-color: rgba(255, 255, 255, 0.9);
     border-color: rgba(0, 0, 0, 0.4);
 }
 
-/* --- Responsive Adjustments (Optional Example) --- */
 @media (max-width: 600px) {
     .slider-btn {
         font-size: 1.2em;
@@ -331,13 +263,9 @@ body {
     .slider-dots {
         bottom: 10px;
     }
-    /* Adjust aspect ratio for mobile if needed */
-    .slider-container {
-       /* aspect-ratio: 3 / 2; */ /* Example: Make it squarer on mobile */
-    }
 }
 
-
+/* Services section */
 .services-section {
     padding: 50px 20px;
     text-align: center;
@@ -400,7 +328,6 @@ body {
     line-height: 1.6;
 }
 
-/* Animation */
 .service-item {
     opacity: 0;
     transform: translateY(20px);
@@ -411,4 +338,3 @@ body {
     opacity: 1;
     transform: translateY(0);
 }
-
