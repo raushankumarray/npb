@@ -1,4 +1,3 @@
-/* style.css */
 /* Basic Reset & Body Font */
 * {
     margin: 0;
@@ -7,82 +6,79 @@
 }
 
 body {
-    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif; /* Example using Google Fonts */
     line-height: 1.6;
 }
 
 /* Header Styling */
-.site-header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background-color: #f8f9fa;
-    padding: 10px 0;
-    border-bottom: 1px solid #e0e0e0;
-    width: 100%;
-}
+
 
 .header-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+    max-width: 1200px; /* Max width for content */
+    margin: 0 auto; /* Center the container */
+    padding: 0 20px; /* Padding on the sides */
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
+    justify-content: space-between; /* Pushes logo area and nav apart */
+    align-items: center; /* Vertically aligns items */
+    flex-wrap: wrap; /* Allows items to wrap on very small screens if needed */
 }
 
+/* Left Side: Logo & Titles */
 .logo-area {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 15px; /* Space between logo and text */
 }
 
 #logo {
-    height: 50px;
-    width: auto;
-    display: block;
+    height: 50px; /* Adjust logo height as needed */
+    width: auto; /* Maintain aspect ratio */
+    display: block; /* Removes extra space below image */
 }
 
 .title-area {
-    line-height: 1.2;
+    line-height: 1.2; /* Tighter line height for title block */
 }
 
 .site-name {
-    font-size: 1.5em;
-    font-weight: 600;
-    color: #0c30b4;
+    font-size: 1.5em; /* Adjust size as needed */
+    font-weight: 00;
+    /* --- Colorful Text --- */
+    color: #0c30b4; /* Example Color 1: Blue */
 }
 
 .site-subtitle {
     font-size: 0.9em;
     font-weight: 400;
-    color: #de7b03;
+    /* --- Colorful Text --- */
+    color: #de7b03; /* Example Color 2: Green */
 }
 
+/* Right Side: Navigation */
 .main-nav {
     display: flex;
     align-items: center;
 }
 
 .menu-toggle {
-    display: none;
+    display: none; /* Hidden on desktop */
     background: none;
     border: none;
-    font-size: 2em;
+    font-size: 2em; /* Size of hamburger icon */
     color: #ef700f;
     cursor: pointer;
 }
 
 .nav-menu {
     list-style: none;
-    display: flex;
-    gap: 20px;
+    display: flex; /* Horizontal layout on desktop */
+    gap: 20px; /* Space between menu items */
 }
 
 .nav-menu li a {
     text-decoration: none;
-    color: #dc3545;
+    /* --- Colorful Text --- */
+    color: #dc3545; /* Example Color 3: Red */
     font-weight: 600;
     padding: 5px 10px;
     transition: color 0.9s ease, background-color 0.3s ease;
@@ -91,26 +87,105 @@ body {
 
 .nav-menu li a:hover,
 .nav-menu li a:focus {
-    color: #fff;
-    background-color: #0056b3;
+    color: #fff; /* White text on hover */
+    background-color: #0056b3; /* Blue background on hover */
 }
 
-/* Responsive Styles */
+/* --- Responsive Styles --- */
 @media (max-width: 768px) {
+    .header-container {
+        /* Keep space-between, alignment remains center */
+    }
+
     .menu-toggle {
-        display: block;
-        position: relative;
-        z-index: 1100;
-        cursor: pointer;
+        display: block; /* Show hamburger button on mobile */
+    }
+
+    .nav-menu {
+        display: none; /* Hide menu by default on mobile */
+        position: absolute;
+        top: 100%; /* Position below the header */
+        right: 0;
+        background-color: #e9ecef; /* Slightly different background for dropdown */
+        width: 100%; /* Full width */
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center text */
+        padding: 15px 0;
+        border-top: 1px solid #ddd;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        gap: 0; /* Reset gap for vertical layout */
+        opacity: 0; /* Start hidden for transition */
+        transform: translateY(-10px); /* Start slightly above for transition */
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .nav-menu.active {
+        display: flex; /* Show the menu when active */
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .nav-menu li {
+        width: 100%;
+        text-align: left;
+        padding-right: 30px;
+        padding-left: 30px;
+    }
+
+    .nav-menu li a {
+        display: block; /* Make links full width */
+        padding: 12px 20px; /* Adjust padding for vertical menu */
+        border-bottom: 1px solid #ddd; /* Separator lines */
+        width: 100%;
+        border-radius: 0; /* Remove border-radius for full width links */
+    }
+    .nav-menu li:last-child a {
+        border-bottom: none; /* Remove border from last item */
+    }
+
+     .nav-menu li a:hover,
+     .nav-menu li a:focus {
+        background-color: #e07d13; /* Keep hover consistent */
+        color: #0721cc;
+     }
+
+     /* Adjust title size slightly for smaller screens if needed */
+     .site-name {
+         font-size: 1.3em;
+     }
+     .site-subtitle {
+         font-size: 0.8em;
+     }
+     #logo {
+         height: 40px; /* Slightly smaller logo */
+     }
+}
+
+
+
+/* --- Previous CSS rules from the last response remain the same --- */
+/* Add these rules or modify existing ones within the mobile media query */
+
+/* --- Responsive Styles --- */
+@media (max-width: 768px) {
+    /* ... (keep all previous mobile styles for .header-container, etc.) ... */
+
+    .menu-toggle {
+        display: block; /* Show hamburger button */
+        /* --- Add/Ensure these styles --- */
+        position: relative; /* Needed for z-index to work reliably */
+        z-index: 1100;     /* Ensure button is clickable, above other elements */
+        cursor: pointer;   /* Explicitly set cursor */
         background: none;
         border: none;
         font-size: 2em;
         color: #333;
-        padding: 5px;
+        padding: 5px; /* Add some padding for easier tapping */
     }
 
     .nav-menu {
-        display: none;
+        /* ... (keep all previous mobile styles for .nav-menu) ... */
+        display: none; /* Explicitly ensure it's hidden initially */
         position: absolute;
         top: 100%;
         right: 0;
@@ -124,86 +199,77 @@ body {
         gap: 0;
         opacity: 0;
         transform: translateY(-10px);
-        transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
-        visibility: hidden;
-        z-index: 1050;
+        transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease; /* Added visibility transition */
+        visibility: hidden; /* Use visibility for transition */
+        z-index: 1050; /* Ensure menu is above content but below button if needed */
     }
 
     .nav-menu.active {
-        display: flex;
+        display: flex; /* Use flex to show */
         opacity: 1;
         transform: translateY(0);
-        visibility: visible;
-    }
-    .nav-menu li {
-        width: 100%;
-        text-align: left;
-        padding-right: 30px;
-        padding-left: 30px;
+        visibility: visible; /* Make visible */
     }
 
-    .nav-menu li a {
-        display: block;
-        padding: 12px 20px;
-        border-bottom: 1px solid #ddd;
-        width: 100%;
-        border-radius: 0;
-    }
-    .nav-menu li:last-child a {
-        border-bottom: none;
-    }
-
-    .nav-menu li a:hover,
-    .nav-menu li a:focus {
-        background-color: #e07d13;
-        color: #0721cc;
-    }
-    .site-name {
-        font-size: 1.3em;
-    }
-    .site-subtitle {
-        font-size: 0.8em;
-    }
-    #logo {
-        height: 40px;
-    }
+    /* ... (keep all previous mobile styles for li, a, etc.) ... */
 }
 
-/* Image Slider */
-.slider-container {
+/* --- Ensure other base styles and desktop styles are still present --- */
+
+/* Example: Make sure the header itself has a z-index */
+.site-header {
+    /* ... other styles ... */
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Base z-index */
+    background-color: #f8f9fa;
+    padding: 10px 0;
+    border-bottom: 1px solid #e0e0e0;
     width: 100%;
-    position: relative;
-    overflow: hidden;
-    background-color: #eee;
-    aspect-ratio: 16 / 7;
+}
+
+
+/* image slide section */
+.slider-container {
+    width: 100%;            
+    position: relative;    
+    overflow: hidden;    
+    background-color: #eee; 
+     aspect-ratio: 16 / 7; 
 }
 
 .slider-wrapper {
-    display: flex;
-    height: 100%;
+    display: flex;         
+    height: 100%;          
     transition: transform 0.6s ease-in-out;
 }
 
 .slide {
-    min-width: 100%;
-    height: 100%;
-    flex-shrink: 0;
-    position: relative;
+    min-width: 100%;        /* Each slide takes full container width */
+    height: 100%;           /* Each slide takes full container height */
+    flex-shrink: 0;         /* Prevents slides from shrinking */
+    position: relative;     /* For potential caption overlay later */
 }
 
 .slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
+    display: block;         /* Removes extra space below image */
+    width: 100%;            /* Image tries to fill slide width */
+    height: 100%;           /* Image tries to fill slide height */
+
+    /* --- Key property for fitting ANY size image --- */
     object-fit: cover;
+    /* 'cover': Fills the space, maintains aspect ratio, crops if needed (usually best for sliders) */
+    /* 'contain': Fits the whole image, maintains aspect ratio, may leave empty space (letterboxing) */
+    /* 'fill': Stretches/squishes image to fill space, ignores aspect ratio (usually bad) */
 }
 
+/* --- Navigation Buttons --- */
 .slider-btn {
     position: absolute;
-    top: 50%;
+    top: 50%;               /* Center vertically */
     transform: translateY(-50%);
-    z-index: 10;
-    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 10;            /* Ensure buttons are above slides */
+    background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent background */
     color: white;
     border: none;
     padding: 10px 15px;
@@ -226,31 +292,33 @@ body {
     right: 15px;
 }
 
+/* --- Navigation Dots --- */
 .slider-dots {
     position: absolute;
-    bottom: 15px;
-    left: 50%;
+    bottom: 15px;           /* Position at the bottom */
+    left: 50%;              /* Center horizontally */
     transform: translateX(-50%);
-    z-index: 10;
+    z-index: 10;            /* Ensure dots are above slides */
     display: flex;
-    gap: 8px;
+    gap: 8px;               /* Space between dots */
 }
 
 .dot {
     width: 12px;
     height: 12px;
-    background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white */
+    border-radius: 50%;     /* Make them circular */
     cursor: pointer;
     border: 1px solid rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s ease;
 }
 
 .dot.active {
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.9); /* Brighter white for active dot */
     border-color: rgba(0, 0, 0, 0.4);
 }
 
+/* --- Responsive Adjustments (Optional Example) --- */
 @media (max-width: 600px) {
     .slider-btn {
         font-size: 1.2em;
@@ -263,9 +331,13 @@ body {
     .slider-dots {
         bottom: 10px;
     }
+    /* Adjust aspect ratio for mobile if needed */
+    .slider-container {
+       /* aspect-ratio: 3 / 2; */ /* Example: Make it squarer on mobile */
+    }
 }
 
-/* Services section */
+
 .services-section {
     padding: 50px 20px;
     text-align: center;
@@ -328,6 +400,7 @@ body {
     line-height: 1.6;
 }
 
+/* Animation */
 .service-item {
     opacity: 0;
     transform: translateY(20px);
@@ -338,3 +411,248 @@ body {
     opacity: 1;
     transform: translateY(0);
 }
+
+.services-intro {
+    max-width: 600px;
+    margin: -15px auto 35px;
+    color: #666;
+}
+
+/* Page content wrapper */
+.page-content {
+    min-height: 50vh;
+}
+
+/* About page */
+.about-section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.about-section h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.about-intro {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+.about-content {
+    text-align: left;
+}
+
+.about-content p {
+    margin-bottom: 15px;
+    color: #666;
+    line-height: 1.7;
+}
+
+/* Footer */
+.site-footer {
+    background-color: #1a1a2e;
+    color: #e0e0e0;
+    margin-top: 60px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 20px 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.footer-contact h3,
+.footer-links h3,
+.footer-legal h3,
+.footer-social h3 {
+    color: #fff;
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.footer-social .social-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.footer-social .social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #b8b8b8;
+    text-decoration: none;
+    padding: 8px;
+    border-radius: 4px;
+    transition: color 0.3s ease;
+}
+
+.footer-social .social-links a:hover {
+    color: #ef700f;
+}
+
+.footer-social .social-links a svg {
+    width: 24px;
+    height: 24px;
+}
+
+.footer-contact p,
+.footer-links ul,
+.footer-legal ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.footer-contact p {
+    margin-bottom: 8px;
+}
+
+.footer-contact a,
+.footer-links a,
+.footer-legal a {
+    color: #b8b8b8;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-contact a:hover,
+.footer-links a:hover,
+.footer-legal a:hover {
+    color: #ef700f;
+}
+
+.footer-links li,
+.footer-legal li {
+    margin-bottom: 8px;
+}
+
+.footer-bottom {
+    border-top: 1px solid #333;
+    padding: 20px;
+    text-align: center;
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 0.9em;
+    color: #888;
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-links ul,
+    .footer-legal ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px 25px;
+    }
+}
+
+/* Legal pages - Privacy Policy, Terms, Refund, Disclaimer */
+.legal-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px 60px;
+}
+
+.legal-page h1 {
+    font-size: clamp(1.75rem, 5vw, 2.25rem);
+    color: #333;
+    margin-bottom: 8px;
+    line-height: 1.3;
+}
+
+.legal-updated {
+    color: #666;
+    font-size: 0.95em;
+    margin-bottom: 35px;
+}
+
+.legal-page section {
+    margin-bottom: 28px;
+}
+
+.legal-page section h2 {
+    font-size: clamp(1.1rem, 3vw, 1.25rem);
+    color: #333;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.legal-page section p,
+.legal-page section li {
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 10px;
+}
+
+.legal-page section ul,
+.legal-page section ol {
+    margin: 10px 0 15px 20px;
+    padding-left: 20px;
+}
+
+.legal-page section ul {
+    list-style-type: disc;
+}
+
+.legal-page section ol {
+    list-style-type: decimal;
+}
+
+.legal-page section a {
+    color: #0c30b4;
+    text-decoration: underline;
+}
+
+.legal-page section a:hover {
+    color: #ef700f;
+}
+
+/* Legal page - responsive */
+@media (max-width: 768px) {
+    .legal-page {
+        padding: 30px 16px 50px;
+    }
+
+    .legal-page section ul,
+    .legal-page section ol {
+        margin-left: 16px;
+        padding-left: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .legal-page {
+        padding: 24px 14px 40px;
+    }
+
+    .legal-page h1 {
+        font-size: 1.5rem;
+    }
+
+    .legal-page section h2 {
+        font-size: 1.1rem;
+    }
+
+    .legal-page section p,
+    .legal-page section li {
+        font-size: 0.95rem;
+    }
+}
+
